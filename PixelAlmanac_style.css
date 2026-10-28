@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #e150de;
+}
+
+/* Sprites */
+.Squid, .Slime, .Parrot, .Shell, .Bat, 
+.Amber, .Octopus,.Fox, .Acorn, 
+.Speaker { 
+    width: 32px; 
+    height: 32px; 
+    scale: 6.5; 
+    background-repeat: no-repeat; 
+    image-rendering: pixelated; 
+}
+.Squid {
+    background-image: url("Squid.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Slime {
+    background-image: url("Slime.png");
+    animation: play8 0.8s steps(8) infinite;
+}
+.Parrot {
+    background-image: url("Parrot.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Shell {
+    background-image: url("Shell.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Bat {
+    background-image: url("Bat.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Amber {
+    background-image: url("Amber.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Octopus {
+    background-image: url("Octopus.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Fox {
+    background-image: url("Fox.png");
+    animation: play8 0.8s steps(8) infinite;
+}
+.Acorn {
+    background-image: url("Acorn.png");
+    animation: play6 0.6s steps(6) infinite;
+}
+.Speaker {
+    background-image: url("Speaker.png");
+    animation: play4 0.8s steps(4) infinite;
+}
+
+/* Animations */
+
+@keyframes play6 { 
+    from { background-position: 0px; }
+    to { background-position: -192px; }
+}
+@keyframes play4 { 
+    from { background-position: 0px; }
+    to { background-position: -128px; }
+}
+@keyframes play8 { 
+    from { background-position: 0px; }
+    to { background-position: -256px; }
+}
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@font-face { /*needed for Minecraft font to apply */
+    font-family: 'Minecraft';
+    src: url('Minecraft.ttf');
+}
+
+/* pages */
+
+.pages {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.page {
+    display: none;
+    font-family: Minecraft;
+}
+.page.speaker-page {
+    display: none;
+    font-family: Minecraft;
+}
+.page.active {
+    display: flex;
+}
+
+/* Boxes */
+
+.container { /* Manage the content displayed */
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box { /* Centerpiece for everything */
+    height: 80vh;
+    width: 85vw;
+    background-color: rgba(252, 196, 229, 0.85);
+    display: grid;
+    justify-items: center; /* Horizontal allign */
+    padding: 10px;
+    border-radius: 20px; 
+}
+#titlebox { /* Stores the title of the Project*/
+    height: 50vh;
+    width: 80vw;
+    background-color: rgba(196, 252, 222, 0.65);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px; 
+}
+#titlebox2 {
+    height: 30vh;
+    width: 80vw;
+    background-color: #cfb0f5;
+    display: grid;
+    align-items: center;
+    image-rendering: pixelated;
+    border-radius: 20px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.vectorbox {
+    height: 80vh;
+    width: 80vw;
+    background-color: rgba(51, 251, 144, 0.45);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20px; 
+}
+#vectorbox2 {
+    height: 30vh;
+    width: 75vw;
+    background-color: rgba(184, 54, 249, 0.45);
+    display: grid;
+    align-items: center;
+    image-rendering: pixelated;
+    border-radius: 20px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#sprite-holder {
+    width: 240px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: linear-gradient(45deg, #ff007f, #7f00ff);
+    border-radius: 50%;
+    filter: blur(40px); 
+    transition: filter 0.2s ease;
+}
+
+/* Text */
+
+#title {
+    font-size: clamp(1rem, 5vw + 5vh, 10rem);
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(
+        to right,
+        #7953cd 20%,
+        #00affa 30%,
+        #0190cd 70%,
+        #764ada 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite;
+}
+#subtitle {
+    font-size: clamp(1rem, 2vw + 2vh, 6rem);
+    text-align: center;
+    margin: 0;
+}
+.subdescription {
+    font-size: clamp(1rem, 2vw + 2vh, 4rem);
+    text-align: center;
+    margin: 0;
+}
+.description {
+    font-size: 10px;
+    color: white;
+    text-align: left;
+    margin: 0;
+}
+
+/* Buttons (NOTE: Keep outside container to let code work*/
+button {
+    background-color: aliceblue;
+    height: 10vh;
+    width: 20vw;
+    display: grid;
+    margin: 1vw;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+button:hover {
+  background-color: #8c9db1;
+}
+#buttonTray {
+    background-color: rgb(167 196 221 / 50%);
+    height: 15vh;
+    width: 95vw;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page,/* Av0id being behinnd bg animation*/
+#buttonTray {
+    position: relative;
+    z-index: 1;
+}
